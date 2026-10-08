@@ -1,0 +1,1587 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg: #0b090d;
+
+    --sidebar: rgba(15, 13, 18, 0.92);
+
+    --panel: rgba(19, 15, 21, 0.96);
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --text: #f5eef2;
+
+    --muted: #9f929b;
+
+    --accent: #d65a5a;
+
+    --accent-dark: #9e3e4d;
+
+    --message: rgba(255, 255, 255, 0.075);
+
+    --message-own: rgba(150, 45, 60, 0.65);
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    background: var(--bg);
+
+    overflow: hidden;
+
+    min-height: 100vh;
+}
+
+
+button,
+input {
+
+    font-family: inherit;
+}
+
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.hidden {
+
+    display: none !important;
+}
+
+
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+.app {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    display: flex;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            rgba(10, 7, 11, 0.76),
+            rgba(10, 7, 11, 0.88)
+        ),
+
+        url("assets/fundo-chat.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.screen {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            rgba(12, 8, 13, 0.76),
+            rgba(12, 8, 13, 0.92)
+        ),
+
+        url("assets/fundo-chat.png");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.login-card {
+
+    width: 400px;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(20, 16, 22, 0.88);
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+}
+
+
+.brand-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e36a58,
+            #923b54
+        );
+
+    font-weight: bold;
+
+    font-size: 21px;
+}
+
+
+.brand h1 {
+
+    font-size: 28px;
+
+    letter-spacing: -1px;
+}
+
+
+.login-description {
+
+    text-align: center;
+
+    color: var(--muted);
+
+    margin-bottom: 30px;
+
+    font-size: 14px;
+}
+
+
+.login-card form {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.login-card label {
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #cfc3ca;
+
+    margin-bottom: 7px;
+}
+
+
+.login-card input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 18px;
+
+    border-radius: 9px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(0, 0, 0, 0.28);
+
+    color: white;
+
+    outline: none;
+}
+
+
+.login-card input:focus {
+
+    border-color: var(--accent);
+}
+
+
+.primary-button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    color: white;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-dark)
+        );
+
+    transition: 0.2s;
+}
+
+
+.primary-button:hover {
+
+    transform: translateY(-1px);
+
+    filter: brightness(1.1);
+}
+
+
+.secondary-button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    color: #ddd;
+
+    background: rgba(255,255,255,0.06);
+}
+
+
+.secondary-button:hover {
+
+    background: rgba(255,255,255,0.1);
+}
+
+
+.login-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 22px 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.login-divider::before,
+.login-divider::after {
+
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: var(--border);
+}
+
+
+.form-title {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    margin-bottom: 5px;
+}
+
+
+.back-button {
+
+    display: block;
+
+    margin: 18px auto 0;
+
+    background: none;
+
+    color: var(--muted);
+}
+
+
+.back-button:hover {
+
+    color: white;
+}
+
+
+/* =========================================================
+   FOTO CADASTRO
+========================================================= */
+
+.register-avatar-area {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin: 20px 0 25px;
+}
+
+
+.big-avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 2px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 30px;
+
+    overflow: hidden;
+
+    margin-bottom: 10px;
+}
+
+
+.big-avatar img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.photo-label {
+
+    cursor: pointer;
+
+    color: #dca0a8;
+
+    font-size: 12px;
+}
+
+
+.login-card small {
+
+    color: var(--muted);
+
+    margin-top: -10px;
+
+    margin-bottom: 18px;
+}
+
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.contacts-sidebar {
+
+    width: 290px;
+
+    height: 100%;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        rgba(12, 10, 14, 0.88);
+
+    border-right: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+}
+
+
+.my-profile {
+
+    height: 70px;
+
+    padding: 12px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.avatar {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a64b58,
+            #613546
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    overflow: hidden;
+}
+
+
+.avatar img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.my-profile-info {
+
+    flex: 1;
+
+    margin-left: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.my-profile-info strong {
+
+    font-size: 14px;
+}
+
+
+.my-profile-info span {
+
+    font-size: 11px;
+
+    color: #62b875;
+}
+
+
+.simple-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 17px;
+}
+
+
+.simple-icon:hover {
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+}
+
+
+
+/* =========================================================
+   PESQUISA
+========================================================= */
+
+.search-box {
+
+    padding: 12px;
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    border: 1px solid transparent;
+
+    background: rgba(255,255,255,0.055);
+
+    color: white;
+
+    outline: none;
+}
+
+
+.search-box input:focus {
+
+    border-color: rgba(255,255,255,0.12);
+}
+
+
+.contacts-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 7px 15px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+}
+
+
+.add-contact {
+
+    width: 25px;
+
+    height: 25px;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 20px;
+}
+
+
+.add-contact:hover {
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+}
+
+
+
+/* =========================================================
+   CONTATOS
+========================================================= */
+
+.contacts-list {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 4px 8px;
+}
+
+
+.contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    margin-bottom: 3px;
+
+    transition: 0.15s;
+}
+
+
+.contact-item:hover {
+
+    background: rgba(255,255,255,0.055);
+}
+
+
+.contact-item.active {
+
+    background:
+        rgba(166, 67, 80, 0.22);
+
+}
+
+
+.contact-info {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.contact-info strong {
+
+    font-size: 13px;
+}
+
+
+.contact-info span {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.empty-contacts {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: var(--muted);
+}
+
+
+.empty-contacts div {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+
+.empty-contacts p {
+
+    font-size: 13px;
+
+    color: #c7bbc2;
+
+    margin-bottom: 5px;
+}
+
+
+.empty-contacts span {
+
+    font-size: 11px;
+}
+
+
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+.chat {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        rgba(8, 7, 10, 0.22);
+}
+
+
+.chat-header {
+
+    height: 70px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        rgba(12, 10, 14, 0.38);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.chat-user-info {
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.chat-user-info > div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.chat-user-info span {
+
+    color: #6fb47a;
+
+    font-size: 11px;
+}
+
+
+.empty-chat-header {
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+
+/* =========================================================
+   MENSAGENS
+========================================================= */
+
+.messages {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.welcome-chat {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+}
+
+
+.welcome-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d85c59,
+            #713448
+        );
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+
+.welcome-chat h2 {
+
+    font-size: 20px;
+
+    margin-bottom: 7px;
+}
+
+
+.welcome-chat p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.message {
+
+    display: flex;
+
+    max-width: 70%;
+
+    margin-bottom: 15px;
+}
+
+
+.message.received {
+
+    align-self: flex-start;
+}
+
+
+.message.sent {
+
+    align-self: flex-end;
+}
+
+
+.message-bubble {
+
+    padding: 10px 13px;
+
+    border-radius: 11px;
+
+    background: var(--message);
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+.sent .message-bubble {
+
+    background: var(--message-own);
+}
+
+
+.message-meta {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-bottom: 4px;
+}
+
+
+.message-image {
+
+    max-width: 300px;
+
+    max-height: 300px;
+
+    border-radius: 12px;
+
+    display: block;
+
+    object-fit: cover;
+
+    margin-top: 5px;
+}
+
+
+
+/* =========================================================
+   COMPOSER
+========================================================= */
+
+.message-composer {
+
+    min-height: 68px;
+
+    padding: 10px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    border-top: 1px solid var(--border);
+
+    background:
+        rgba(11, 9, 13, 0.65);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.message-composer > input[type="text"] {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+
+    background: rgba(255,255,255,0.055);
+
+    color: white;
+
+    outline: none;
+}
+
+
+.message-composer > input[type="text"]:focus {
+
+    border-color: rgba(255,255,255,0.12);
+}
+
+
+.composer-button,
+.send-button {
+
+    width: 39px;
+
+    height: 39px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+
+.composer-button {
+
+    background: rgba(255,255,255,0.07);
+
+    color: #d4a1a7;
+
+    font-size: 20px;
+}
+
+
+.send-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #d75d5a,
+            #953e50
+        );
+
+    color: white;
+
+    font-size: 17px;
+}
+
+
+
+/* =========================================================
+   PAINEL DE CONTATO
+========================================================= */
+
+.contact-panel {
+
+    width: 300px;
+
+    flex-shrink: 0;
+
+    height: 100%;
+
+    background:
+        rgba(17, 13, 19, 0.96);
+
+    border-left: 1px solid var(--border);
+
+    backdrop-filter: blur(20px);
+
+    transform: translateX(100%);
+
+    transition: transform 0.25s ease;
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    z-index: 10;
+}
+
+
+.contact-panel.open {
+
+    transform: translateX(0);
+}
+
+
+.panel-header {
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.close-button {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 22px;
+}
+
+
+.close-button:hover {
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+}
+
+
+
+/* =========================================================
+   PERFIL DO CONTATO
+========================================================= */
+
+.contact-profile {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 30px 15px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.contact-image-container {
+
+    position: relative;
+
+    cursor: pointer;
+
+    margin-bottom: 13px;
+}
+
+
+.large-avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a94d59,
+            #603445
+        );
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+.large-avatar img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.change-photo {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #241a21;
+
+    border: 1px solid var(--border);
+
+    font-size: 12px;
+}
+
+
+.contact-profile h2 {
+
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+
+.contact-profile > span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+
+/* =========================================================
+   SEÇÕES DO PAINEL
+========================================================= */
+
+.panel-section {
+
+    padding: 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.section-title {
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+
+    color: var(--muted);
+}
+
+
+.profile-information {
+
+    margin-top: 16px;
+}
+
+
+.profile-information label {
+
+    display: block;
+
+    font-size: 10px;
+
+    color: var(--muted);
+
+    margin-bottom: 5px;
+}
+
+
+.profile-information p {
+
+    font-size: 13px;
+}
+
+
+.panel-option {
+
+    width: 100%;
+
+    text-align: left;
+
+    padding: 12px 8px;
+
+    margin-top: 8px;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #ddd;
+
+    font-size: 12px;
+}
+
+
+.panel-option:hover {
+
+    background: rgba(255,255,255,0.06);
+}
+
+
+.panel-option.danger {
+
+    color: #dc6868;
+}
+
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(0,0,0,0.6);
+
+    backdrop-filter: blur(5px);
+}
+
+
+.modal-card {
+
+    width: 380px;
+
+    padding: 28px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(25, 19, 27, 0.97);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6);
+
+    position: relative;
+}
+
+
+.modal-card h2 {
+
+    margin-bottom: 7px;
+}
+
+
+.modal-card > p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+.modal-card label {
+
+    display: block;
+
+    color: #cfc3ca;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+
+.modal-card input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 16px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(0,0,0,0.25);
+
+    color: white;
+
+    outline: none;
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 15px;
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 20px;
+}
+
+
+.modal-close:hover {
+
+    background: rgba(255,255,255,0.07);
+
+    color: white;
+}
+
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .contacts-sidebar {
+
+        width: 240px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .contacts-sidebar {
+
+        width: 75px;
+    }
+
+
+    .my-profile-info,
+    .search-box,
+    .contacts-heading span,
+    .contact-info {
+
+        display: none;
+    }
+
+
+    .my-profile {
+
+        justify-content: center;
+    }
+
+
+    .simple-icon {
+
+        display: none;
+    }
+
+
+    .contacts-heading {
+
+        justify-content: center;
+    }
+
+
+    .contact-item {
+
+        justify-content: center;
+    }
+
+
+    .contact-panel {
+
+        width: 100%;
+    }
+
+
+    .login-card {
+
+        width: calc(100% - 30px);
+
+        padding: 28px;
+    }
+
+}

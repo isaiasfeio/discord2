@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Chatter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
+    <section id="loginScreen" class="screen">
+
+        <div class="login-card">
+
+            <div class="brand">
+                <div class="brand-icon">C</div>
+
+                <h1>Chatter</h1>
+            </div>
+
+            <p class="login-description">
+                Converse com as pessoas que importam.
+            </p>
+
+
+            <form id="loginForm">
+
+                <label>E-mail</label>
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="seu@email.com"
+                    required
+                >
+
+
+                <label>Senha</label>
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Sua senha"
+                    required
+                >
+
+
+                <button class="primary-button">
+                    Entrar
+                </button>
+
+            </form>
+
+
+            <div class="login-divider">
+                <span>ou</span>
+            </div>
+
+
+            <button
+                id="createAccountButton"
+                class="secondary-button"
+            >
+                Criar uma conta
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CADASTRO
+    ====================================================== -->
+
+    <section
+        id="registerScreen"
+        class="screen hidden"
+    >
+
+        <div class="login-card">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    C
+                </div>
+
+                <h1>Chatter</h1>
+
+            </div>
+
+
+            <h2 class="form-title">
+                Criar conta
+            </h2>
+
+
+            <p class="login-description">
+                Crie seu perfil para começar.
+            </p>
+
+
+            <!-- FOTO -->
+
+            <div class="register-avatar-area">
+
+                <div
+                    id="registerAvatarPreview"
+                    class="big-avatar"
+                >
+                    +
+                </div>
+
+                <label
+                    for="registerAvatar"
+                    class="photo-label"
+                >
+                    Escolher foto
+                </label>
+
+                <input
+                    id="registerAvatar"
+                    type="file"
+                    accept="image/*"
+                    hidden
+                >
+
+            </div>
+
+
+            <form id="registerForm">
+
+                <label>Nome de usuário</label>
+
+                <input
+                    id="registerUsername"
+                    type="text"
+                    maxlength="20"
+                    placeholder="@seunome"
+                    required
+                >
+
+                <small>
+                    Esse nome será usado para encontrar você.
+                </small>
+
+
+                <label>E-mail</label>
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="seu@email.com"
+                    required
+                >
+
+
+                <label>Senha</label>
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Crie uma senha"
+                    required
+                >
+
+
+                <button class="primary-button">
+                    Criar conta
+                </button>
+
+            </form>
+
+
+            <button
+                id="backToLogin"
+                class="back-button"
+            >
+                ← Voltar
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         APLICAÇÃO
+    ====================================================== -->
+
+    <main
+        id="appScreen"
+        class="app hidden"
+    >
+
+
+        <!-- =================================================
+             CONTATOS
+        ================================================== -->
+
+        <aside class="contacts-sidebar">
+
+
+            <!-- PERFIL -->
+
+            <div class="my-profile">
+
+                <div
+                    id="myAvatar"
+                    class="avatar"
+                >
+                    I
+                </div>
+
+                <div class="my-profile-info">
+
+                    <strong id="myName">
+                        Isaias
+                    </strong>
+
+                    <span>
+                        online
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="mySettings"
+                    class="simple-icon"
+                    title="Meu perfil"
+                >
+                    ⚙
+                </button>
+
+            </div>
+
+
+            <!-- PESQUISA -->
+
+            <div class="search-box">
+
+                <input
+                    id="searchContacts"
+                    type="text"
+                    placeholder="Pesquisar"
+                >
+
+            </div>
+
+
+            <!-- CABEÇALHO CONTATOS -->
+
+            <div class="contacts-heading">
+
+                <span>
+                    CONVERSAS
+                </span>
+
+                <button
+                    id="addContactButton"
+                    class="add-contact"
+                    title="Adicionar contato"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- LISTA -->
+
+            <div
+                id="contactsList"
+                class="contacts-list"
+            >
+
+                <div
+                    id="emptyContacts"
+                    class="empty-contacts"
+                >
+
+                    <div>
+                        ♡
+                    </div>
+
+                    <p>
+                        Nenhuma conversa ainda.
+                    </p>
+
+                    <span>
+                        Adicione alguém para começar.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             CHAT
+        ================================================== -->
+
+        <section class="chat">
+
+
+            <!-- HEADER -->
+
+            <header class="chat-header">
+
+                <div
+                    id="chatUserInfo"
+                    class="chat-user-info hidden"
+                >
+
+                    <div
+                        id="chatAvatar"
+                        class="avatar"
+                    >
+                        ?
+                    </div>
+
+                    <div>
+
+                        <strong id="chatName">
+                            —
+                        </strong>
+
+                        <span id="chatStatus">
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="emptyChatHeader"
+                    class="empty-chat-header"
+                >
+                    Chatter
+                </div>
+
+
+                <button
+                    id="contactSettingsButton"
+                    class="simple-icon hidden"
+                    title="Configurações do contato"
+                >
+                    ⋮
+                </button>
+
+            </header>
+
+
+
+            <!-- MENSAGENS -->
+
+            <div
+                id="messages"
+                class="messages"
+            >
+
+                <div
+                    id="welcomeChat"
+                    class="welcome-chat"
+                >
+
+                    <div class="welcome-icon">
+                        C
+                    </div>
+
+                    <h2>
+                        Bem-vindo ao Chatter
+                    </h2>
+
+                    <p>
+                        Adicione um contato e comece uma conversa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENVIO -->
+
+            <div
+                id="messageComposer"
+                class="message-composer hidden"
+            >
+
+                <label
+                    for="imageInput"
+                    class="composer-button"
+                    title="Enviar imagem"
+                >
+                    ＋
+                </label>
+
+                <input
+                    id="imageInput"
+                    type="file"
+                    accept="image/*"
+                    hidden
+                >
+
+
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Escreva uma mensagem..."
+                >
+
+
+                <button
+                    id="sendMessage"
+                    class="send-button"
+                >
+                    ➤
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONFIGURAÇÕES DO CONTATO
+        ================================================== -->
+
+        <aside
+            id="contactPanel"
+            class="contact-panel"
+        >
+
+            <div class="panel-header">
+
+                <strong>
+                    Contato
+                </strong>
+
+                <button
+                    id="closeContactPanel"
+                    class="close-button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="contact-profile">
+
+                <label
+                    for="contactImageInput"
+                    class="contact-image-container"
+                    title="Alterar imagem"
+                >
+
+                    <div
+                        id="contactPanelAvatar"
+                        class="large-avatar"
+                    >
+                        ?
+                    </div>
+
+                    <div class="change-photo">
+                        📷
+                    </div>
+
+                </label>
+
+                <input
+                    id="contactImageInput"
+                    type="file"
+                    accept="image/*"
+                    hidden
+                >
+
+
+                <h2 id="panelContactName">
+                    —
+                </h2>
+
+                <span id="panelContactUsername">
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="panel-section">
+
+                <span class="section-title">
+                    PERFIL
+                </span>
+
+
+                <div class="profile-information">
+
+                    <label>
+                        Nome de usuário
+                    </label>
+
+                    <p id="panelUsername">
+                        —
+                    </p>
+
+                </div>
+
+
+                <div class="profile-information">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <p>
+                        ● Online
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel-section">
+
+                <span class="section-title">
+                    CONVERSA
+                </span>
+
+
+                <button class="panel-option">
+                    🔔 &nbsp; Silenciar
+                </button>
+
+
+                <button class="panel-option">
+                    🔍 &nbsp; Pesquisar mensagens
+                </button>
+
+
+                <button
+                    id="deleteContactButton"
+                    class="panel-option danger"
+                >
+                    🗑 &nbsp; Remover contato
+                </button>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL ADICIONAR CONTATO
+    ====================================================== -->
+
+    <div
+        id="addContactModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-card">
+
+            <button
+                id="closeAddContact"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                Adicionar contato
+            </h2>
+
+            <p>
+                Digite o nome de usuário da pessoa.
+            </p>
+
+
+            <label>
+                Nome de usuário
+            </label>
+
+            <input
+                id="newContactUsername"
+                type="text"
+                placeholder="@usuario"
+                maxlength="20"
+            >
+
+
+            <label>
+                Nome
+            </label>
+
+            <input
+                id="newContactName"
+                type="text"
+                placeholder="Nome da pessoa"
+                maxlength="30"
+            >
+
+
+            <button
+                id="confirmAddContact"
+                class="primary-button"
+            >
+                Adicionar contato
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
